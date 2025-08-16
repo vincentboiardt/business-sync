@@ -1,14 +1,13 @@
 {
-  "name": "business-sync",
+  "name": "@repo/supabase",
   "version": "0.1.0",
   "private": true,
+  "exports": {
+    "./client": "./src/client.ts",
+    "./server": "./src/server.ts"
+  },
   "scripts": {
-    "build": "turbo build",
-    "dev": "turbo dev",
-    "lint": "turbo lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "clean": "turbo clean",
-    "test": "turbo test",
+    "type-check": "tsc --noEmit",
     "supabase:init": "supabase init",
     "supabase:start": "supabase start",
     "supabase:stop": "supabase stop",
@@ -20,13 +19,12 @@
     "supabase:db:pull": "supabase db pull",
     "supabase:db:reset": "supabase db reset"
   },
-  "devDependencies": {
-    "prettier": "^3.0.0",
-    "turbo": "^2.0.0",
-    "typescript": "^5.0.0"
+  "dependencies": {
+    "@supabase/ssr": "^0.6.1",
+    "@supabase/supabase-js": "^2.55.0"
   },
-  "packageManager": "pnpm@9.0.0",
-  "engines": {
-    "node": ">=18"
+  "devDependencies": {
+    "@repo/typescript-config": "workspace:*",
+    "typescript": "^5.0.0"
   }
 }
