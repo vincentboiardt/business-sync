@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
 import { Globe, AlertCircle } from 'lucide-react'
 import { Suspense } from 'react'
+import { APP_NAME } from '~/lib/constants'
 
 const errorMessages = {
   Configuration: 'There is a problem with the server configuration.',
@@ -22,9 +23,7 @@ function AuthErrorContent() {
         <div className="bg-white rounded-lg shadow-lg p-8 text-center">
           <div className="flex items-center justify-center space-x-2 mb-6">
             <Globe className="h-8 w-8 text-brand" />
-            <span className="text-2xl font-bold text-gray-900">
-              BusinessSync
-            </span>
+            <span className="text-2xl font-bold text-gray-900">{APP_NAME}</span>
           </div>
 
           <div className="mb-6">
@@ -75,7 +74,7 @@ export default function AuthError() {
               <div className="flex items-center justify-center space-x-2 mb-6">
                 <Globe className="h-8 w-8 text-brand" />
                 <span className="text-2xl font-bold text-gray-900">
-                  BusinessSync
+                  {APP_NAME}
                 </span>
               </div>
               <div className="mb-6">

@@ -6,6 +6,7 @@ import Link from 'next/link'
 import { Globe, Mail, ArrowLeft } from 'lucide-react'
 import { createClient } from '@repo/supabase/client'
 import { useAuth } from '~/components/providers'
+import { APP_NAME } from '~/lib/constants'
 
 export default function SignInPage() {
   const router = useRouter()
@@ -67,11 +68,11 @@ export default function SignInPage() {
             <div className="flex items-center justify-center space-x-2 mb-4">
               <Globe className="h-8 w-8 text-brand" />
               <span className="text-2xl font-bold text-gray-900">
-                BusinessSync
+                {APP_NAME}
               </span>
             </div>
             <h1 className="text-2xl font-bold text-gray-900 mb-2">
-              Welcome to BusinessSync
+              Welcome to {APP_NAME}
             </h1>
             <p className="text-gray-600">
               Sign in to start syncing your business across all platforms

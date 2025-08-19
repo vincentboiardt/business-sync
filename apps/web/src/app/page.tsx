@@ -1,33 +1,39 @@
 'use client'
 
 import Link from 'next/link'
-import { ArrowRight, CheckCircle, Globe, Smartphone } from 'lucide-react'
+import { ArrowRight, CheckCircle, Search, Zap } from 'lucide-react'
 import { useAuth } from '~/components/providers'
+import { Header } from '~/components/Header'
+import Logo from '~/components/Logo'
+import { APP_NAME } from '~/lib/constants'
 
 export default function HomePage() {
   const { user } = useAuth()
 
   if (user) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-brand/5 to-brand/15">
-        <div className="max-w-4xl mx-auto px-4 py-12">
-          <div className="text-center">
-            <h1 className="text-4xl font-bold text-gray-900 mb-4">
-              Welcome back, {user.user_metadata?.full_name || user.email}!
-            </h1>
-            <p className="text-xl text-gray-600 mb-8">
-              Ready to sync your business across all platforms?
-            </p>
-            <Link
-              href="/dashboard"
-              className="inline-flex items-center px-6 py-3 bg-brand text-white font-medium rounded-lg hover:bg-brand/90 transition-colors"
-            >
-              Go to Dashboard
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Link>
+      <>
+        <Header />
+        <div className="min-h-screen bg-gradient-to-br from-brand/5 to-brand/15">
+          <div className="max-w-4xl mx-auto px-4 py-12">
+            <div className="text-center">
+              <h1 className="text-4xl font-bold text-gray-900 mb-4">
+                Welcome back, {user.user_metadata?.full_name || user.email}!
+              </h1>
+              <p className="text-xl text-gray-600 mb-8">
+                Ready to sync your business across all platforms?
+              </p>
+              <Link
+                href="/dashboard"
+                className="inline-flex items-center px-6 py-3 bg-brand text-white font-medium rounded-lg hover:bg-brand/90 transition-colors"
+              >
+                Go to Dashboard
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
+            </div>
           </div>
         </div>
-      </div>
+      </>
     )
   }
 
@@ -37,12 +43,7 @@ export default function HomePage() {
       <header className="bg-white shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-6">
-            <div className="flex items-center space-x-2">
-              <Globe className="h-8 w-8 text-brand" />
-              <span className="text-2xl font-bold text-gray-900">
-                BusinessSync
-              </span>
-            </div>
+            <Logo className="h-8 text-brand" />
             <div className="flex items-center space-x-4">
               <Link
                 href="/auth/signin"
@@ -65,20 +66,20 @@ export default function HomePage() {
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
-            Sync Your Business
+            Find Your Business
             <span className="text-brand block">Across All Platforms</span>
           </h1>
           <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-            Keep your business information consistent on Google Business
-            Profile, Bing, Apple Maps, Facebook, Yelp, and more. Update once,
-            sync everywhere.
+            Search and discover how your business appears across Google, Bing,
+            Apple Maps, Facebook, Yelp, and more. Get a complete view of your
+            online presence.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/auth/signin"
               className="inline-flex items-center px-8 py-4 bg-brand text-white font-semibold rounded-lg hover:bg-brand/90 transition-colors text-lg"
             >
-              Start Free Trial
+              Search Your Business
               <ArrowRight className="ml-2 h-5 w-5" />
             </Link>
             <button className="inline-flex items-center px-8 py-4 border-2 border-gray-300 text-gray-700 font-semibold rounded-lg hover:border-gray-400 transition-colors text-lg">
@@ -93,25 +94,25 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Everything You Need to Manage Your Online Presence
+              How It Works
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Our platform makes it easy to keep your business information
-              up-to-date across all major platforms
+              Get complete visibility into your business presence across all
+              major platforms
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
             <div className="text-center p-6">
-              <div className="w-16 h-16 bg-brand/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Globe className="h-8 w-8 text-brand" />
+              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Search className="h-8 w-8 text-blue-600" />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                Multi-Platform Sync
+                Search & Discover
               </h3>
               <p className="text-gray-600">
-                Connect and sync with Google Business Profile, Bing Places,
-                Apple Maps, Facebook, Yelp, and more
+                Find how your business appears across all major platforms with
+                our comprehensive search engine
               </p>
             </div>
 
@@ -120,24 +121,24 @@ export default function HomePage() {
                 <CheckCircle className="h-8 w-8 text-green-600" />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                Real-time Updates
+                Track & Monitor
               </h3>
               <p className="text-gray-600">
-                Changes are pushed to all connected platforms instantly,
-                ensuring consistency
+                Keep track of all your business listings and monitor how your
+                information appears across platforms
               </p>
             </div>
 
             <div className="text-center p-6">
               <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Smartphone className="h-8 w-8 text-purple-600" />
+                <Zap className="h-8 w-8 text-purple-600" />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                Mobile Optimized
+                Get Insights
               </h3>
               <p className="text-gray-600">
-                Manage your business listings on the go with our mobile-friendly
-                dashboard
+                Understand your online presence and identify opportunities to
+                improve your business visibility
               </p>
             </div>
           </div>
@@ -152,7 +153,8 @@ export default function HomePage() {
               Supported Platforms
             </h2>
             <p className="text-xl text-gray-600">
-              Connect your business to all the platforms that matter
+              Search and monitor your business across all the platforms that
+              matter
             </p>
           </div>
 
@@ -186,14 +188,14 @@ export default function HomePage() {
             Ready to Get Started?
           </h2>
           <p className="text-xl text-white/80 mb-8">
-            Join thousands of businesses that trust BusinessSync to manage their
+            Join thousands of businesses using {APP_NAME} to monitor their
             online presence
           </p>
           <Link
             href="/auth/signin"
             className="inline-flex items-center px-8 py-4 bg-white text-brand font-semibold rounded-lg hover:bg-gray-100 transition-colors text-lg"
           >
-            Start Your Free Trial
+            Start Searching
             <ArrowRight className="ml-2 h-5 w-5" />
           </Link>
         </div>
@@ -203,12 +205,9 @@ export default function HomePage() {
       <footer className="bg-gray-900 text-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="flex items-center space-x-2 mb-4 md:mb-0">
-              <Globe className="h-6 w-6" />
-              <span className="text-xl font-bold">BusinessSync</span>
-            </div>
+            <Logo className="h-6 text-white" mono />
             <div className="text-gray-400">
-              © 2025 BusinessSync. All rights reserved.
+              © 2025 {APP_NAME}. All rights reserved.
             </div>
           </div>
         </div>

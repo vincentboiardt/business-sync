@@ -8,7 +8,7 @@ import {
   useState,
 } from 'react'
 import { createClient } from '@repo/supabase/client'
-import { User, Session } from '@supabase/supabase-js'
+import { User, Session } from '@repo/supabase/types'
 
 interface AuthContextType {
   user: User | null

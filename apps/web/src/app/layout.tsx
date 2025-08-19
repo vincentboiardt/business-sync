@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
 import './globals.css'
 import { Providers } from '~/components/providers'
+import { APP_NAME } from '~/lib/constants'
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -14,7 +15,7 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'BusinessSync - Sync Your Business Across All Platforms',
+  title: `${APP_NAME} - Sync Your Business Across All Platforms`,
   description:
     'Sync your Google Business Profile with Bing, Apple Maps, Facebook, Yelp and more. Keep your business information consistent across all platforms.',
 }
